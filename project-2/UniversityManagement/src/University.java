@@ -70,12 +70,14 @@ public class University {
 
         int courseIndex = findCourseIndex(courseName);
         if (courseIndex != -1) {
-            int maxGrade = Integer.MIN_VALUE;
+            boolean isFirstStudent = true;
+            int maxGrade = 0;
             Student topStudent = null;
 
             for (int i = 0; i < numberOfStudents; i++) {
                 int grade = students[i][0].getGrade(courseIndex);
-                if (grade > maxGrade) {
+                if (isFirstStudent || grade > maxGrade) {
+                    isFirstStudent = false;
                     maxGrade = grade;
                     topStudent = students[i][0];
                 }
@@ -93,6 +95,7 @@ public class University {
             System.out.println("Course not found.");
         }
     }
+
 
     public void displayGradesForAllStudentsInCourse() {
         Scanner scanner = new Scanner(System.in);
@@ -119,12 +122,14 @@ public class University {
 
         int courseIndex = findCourseIndex(courseName);
         if (courseIndex != -1) {
-            int maxGrade = Integer.MIN_VALUE;
+            boolean firstStudent = true;
+            int maxGrade = 0;
             Student topStudent = null;
 
             for (int i = 0; i < numberOfStudents; i++) {
                 int grade = students[i][0].getGrade(courseIndex);
-                if (grade > maxGrade) {
+                if (firstStudent || grade > maxGrade) {
+                    firstStudent = false;
                     maxGrade = grade;
                     topStudent = students[i][0];
                 }
@@ -142,6 +147,7 @@ public class University {
             System.out.println("Course not found.");
         }
     }
+
 
     private int findCourseIndex(String courseName) {
         for (int i = 0; i < numberOfCourses; i++) {
