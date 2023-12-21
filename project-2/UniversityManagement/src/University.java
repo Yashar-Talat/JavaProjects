@@ -49,17 +49,19 @@ public class University {
     }
 
     public void displayAllStudents() {
+        int count = 1;
         System.out.println("\nAll Students:");
         for (int i = 0; i < numberOfStudents; i++) {
-            System.out.println("Student Name: " + students[i][0].getStudentName() +
+            System.out.println(count++ + "."+"Student Name: " + students[i][0].getStudentName() +
                     ", Student ID: " + students[i][0].getStudentId());
         }
     }
 
     public void displayAllCourses() {
+        int count = 1;
         System.out.println("\nAll Courses:");
         for (int i = 0; i < numberOfCourses; i++) {
-            System.out.println("Course Name: " + courses[i].getName());
+            System.out.println(count++ + "."+"Course Name: " + courses[i].getName());
         }
     }
 
